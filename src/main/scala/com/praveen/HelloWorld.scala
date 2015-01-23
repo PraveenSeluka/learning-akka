@@ -6,11 +6,7 @@ import akka.actor._
  */
 object HelloWorld {
 
-  def foo(x : Array[String]) = x.foldLeft("")((a,b) => a + b)
-  
   def main(args : Array[String]) {
-    println( "Hello Worldq!" )
-    println("concat arguments = " + foo(args))
     val system =ActorSystem("TestActorSystem")
     val actor = system.actorOf(Props[worker], name="worker-actor")
     actor ! "hello"
